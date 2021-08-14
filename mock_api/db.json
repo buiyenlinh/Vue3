@@ -1,0 +1,29 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "name": "Category one"
+        },
+        {
+            "id": 2,
+            "name": "Category two"
+        }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "categoryId": 1,
+            "name": "Product one"
+        },
+        {
+            "id": 2,
+            "categoryId": 2,
+            "name": "Product two"
+        },
+        {
+            "id": 3,
+            "categoryId": 1,
+            "name": "Product three"
+        }
+    ]
+}
