@@ -6,10 +6,12 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "mock": "nodemon ./mock_api/main.ts"
+    "mock": "nodemon ./mock_api/main.js",
+    "generate-data": "node ./mock_api/generate-data.js && nodemon ./mock_api/main.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "faker": "^5.5.3",
     "json-server": "^0.16.3",
     "nodemon": "^2.0.12",
     "ts-node": "^10.2.0",
