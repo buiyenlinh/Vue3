@@ -27,7 +27,8 @@ const randomProductList = (categoryList, n) => {
                 categoryId: category.id,
                 name: faker.animal.bird(),
                 price: faker.datatype.number(),
-                desciption: faker.lorem.paragraph()
+                desciption: faker.lorem.paragraph(),
+                imageUrl: faker.image.nature()
             }
             productList.push(product);
         })
