@@ -38,12 +38,29 @@ const randomProductList = (categoryList, n) => {
     return productList;
 }
 
+const randomPostList = (n) => {
+    if (n <= 0) return []
+
+    const postList = []
+    Array.from(new Array(n)).forEach(() => {
+        const post = {
+            postId: faker.datatype.uuid(),
+            postName: faker.random.words(),
+            postContent: faker.lorem.paragraphs()
+        }
+        postList.push(post)
+    })
+    return postList;
+}
+
 (() => {
     const customCategory = randomCategoryList(4);
     const customProduct = randomProductList(customCategory, 3);
+    const customPostList = randomPostList(4);
     const db = {
         categories: customCategory,
         products: customProduct,
+        postList: customPostList,
         profile: {
             name: 'Yến'
         }
