@@ -24,6 +24,11 @@ const routes: Array<RouteRecordRaw> = [
       import(/* webpackChunkName: "details post" */ "../views/DetailsPost.vue"),
     props: true
   },
+  { 
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: () => import(/* webpackChunkName: "details post" */ "../views/NotFound.vue"),
+  }
 ];
 
 const router = createRouter({
