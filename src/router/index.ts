@@ -28,6 +28,28 @@ const routes: Array<RouteRecordRaw> = [
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: () => import(/* webpackChunkName: "details post" */ "../views/NotFound.vue"),
+  },
+  {
+    path: "/users",
+    name: "Users",
+    component: () => 
+      import (/* webpackChunkName: "posts" */ "../views/Users.vue")
+    
+  },
+  {
+    path: '/users/:username',
+    name: 'UserInfo',
+    component: () => import(/* webpackChunkName: "Users" */"../views/Users.vue"),
+    children: [
+      {
+        path: '',
+        component: () => import(/* webpackChunkName: "Users Home" */"../components/UserHome.vue")
+      },
+      {
+        path: 'profile',
+        component: () => import(/* webpackChunkName: "Users Profile "*/"../components/UserProfile.vue"),
+      }
+    ]
   }
 ];
 
