@@ -31,7 +31,7 @@
 
 <script>
 import { defineComponent } from "vue"
-import useAccount from "../../hook/account.ts"
+import useAccount from "../../hook/useAccount.ts"
 
 export default defineComponent({
   setup() {
@@ -40,14 +40,14 @@ export default defineComponent({
       alert('Clicked');
     }
 
-    const resetFrom = () => {
+    const resetForm = () => {
       account.username = "";
       account.password = "";
     }
     return {
       submitForm,
       account,
-      resetFrom
+      resetForm
     }
   },
 })
