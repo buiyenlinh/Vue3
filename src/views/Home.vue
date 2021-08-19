@@ -1,7 +1,10 @@
 <template>
   <div class="container">
     <div class="home">
-      <img alt="Vue logo" src="../assets/logo.png" />
+      <img alt="Vue logo" src="../assets/images/logo.png" />
+
+      <el-button type="success">Success</el-button>
+      <el-button type="primary" icon="el-icon-edit" circle></el-button>
     </div>
   </div>
   
