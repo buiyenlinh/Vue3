@@ -1,13 +1,25 @@
-import { reactive } from "vue"
+import { reactive, ref } from "vue"
 
 
 export default function useAccount () {
   const account = reactive({
-    username: '',
+    phone: '',
     password: ''
   })
 
-  return {
-    account
+  const resetForm = () => {
+    account.phone = "";
+    account.password = "";
   }
-}
+
+  const submitForm = (formName: any) => {
+    alert(account.phone + ', ' + account.password + ', ' + formName);
+    
+  }
+
+  return {
+    account,
+    resetForm,
+    submitForm
+  }
+};
