@@ -7,43 +7,41 @@
     </el-col>
     <el-col :span="12">
       <div class="grid-content text-left">
-        <h1>Welcome to my web</h1>
-
-        <div class="login-form">
-          <el-form label-position="top" label-width="100px" :model="account">
-            <el-form-item label="Username">
-              <el-input v-model="account.username"></el-input>
-            </el-form-item>
-            <el-form-item label="Password">
-              <el-input v-model="account.password"></el-input>
-            </el-form-item>
-            <el-form-item>
-              <el-button type="primary" @click="submitForm('ruleForm')">Login</el-button>
-              <el-button @click="resetForm('ruleForm')">Reset</el-button>
-            </el-form-item>
-          </el-form>
+        <div class="login-right">
+          <h1>Welcome to my web</h1>
+          <div class="login-form">
+            <el-form
+              :model="ruleForm" status-icon
+              label-width="80px" label-position="left"
+              ref="loginForm" class="demo-ruleForm">
+              <el-form-item label="Phone">
+                <el-input v-model="account.phone"></el-input>
+              </el-form-item>
+              <el-form-item label="Password">
+                <el-input show-password v-model="account.password"></el-input>
+              </el-form-item>
+              <el-form-item class="login-button">
+                <el-button type="primary" @click="submitForm('account')">Submit</el-button>
+                <el-button @click="resetForm('account')">Reset</el-button>
+              </el-form-item>
+            </el-form>
+          </div>
         </div>
       </div>
       </el-col>
   </el-row>
 </template>
 
-
 <script>
 import { defineComponent } from "vue"
+import { useField } from "vee-validate";
 import useAccount from "../../hook/useAccount.ts"
+// import * as yup from 'yup';
 
 export default defineComponent({
   setup() {
-    const { account } = useAccount();
-    const submitForm = () => {
-      alert('Clicked');
-    }
-
-    const resetForm = () => {
-      account.username = "";
-      account.password = "";
-    }
+    const { account, resetForm, submitForm } = useAccount();
+    
     return {
       submitForm,
       account,
