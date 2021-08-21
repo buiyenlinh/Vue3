@@ -4,9 +4,9 @@ import axios from 'axios';
 import { ref } from 'vue';
 
 export default function useValidateAccount () {
-  const phoneRegExp = /^0[0-9]{9,}$/;
+  // const usernameRegExp = /^0[0-9]{9,}$/;
     const loginSchema = yup.object ({
-      phone: yup.string().required("Số điện thoại là bắt buộc").matches(phoneRegExp, 'Phone number is not valid').max(10),
+      username: yup.string().required("Tên đăng nhập là bắt buộc"),
       password: yup.string().required("Mật khẩu là bắt buộc").min(8)
     })
     
@@ -19,10 +19,10 @@ export default function useValidateAccount () {
     });
 
 
-    const { value: phone } = useField('phone');
+    const { value: username } = useField('username');
     const { value: password } = useField('password');
   return {
-    phone,
+    username,
     password,
     onSubmit,
     errors,
@@ -35,4 +35,5 @@ async function login(params:any) {
   // const response = await axios.post('https://api-nienluan.sharenows.com/api/v1/Production/login', params);
   const response = await axios.post('http://localhost:8082/api/login', params);
   console.log(response)
+  localStorage.setItem('token', "khkjhguihdfrutihfjdbskjifgjfjfhgjh");
 }
