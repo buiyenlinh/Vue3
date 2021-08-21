@@ -15,12 +15,10 @@
           <h1>Welcome to my web</h1>
           <div class="login-form" @submit="onSubmit">
             <el-form
-              :model="ruleForm"
-              label-width="120px" label-position="left"
-              ref="loginForm" class="demo-ruleForm">
-              <el-form-item label="Số điện thoại">
-                <el-input type="tel" v-model="phone"></el-input>
-                <span class="login-error">{{ errors.phone }}</span>
+              label-width="120px" label-position="left" class="demo-ruleForm">
+              <el-form-item label="Tên đăng nhập">
+                <el-input type="tel" v-model="username"></el-input>
+                <span class="login-error">{{ errors.username }}</span>
               </el-form-item>
               <el-form-item label="Mật khẩu">
                 <el-input show-password v-model="password"></el-input>
@@ -44,10 +42,10 @@ import useValidateAccount from "../../hook/useValidateAccount.ts"
 
 export default defineComponent({
   setup() {
-    const {phone, password, onSubmit, errors, resetForm, isLoading } = useValidateAccount();
+    const {username, password, onSubmit, errors, resetForm, isLoading } = useValidateAccount();
 
     return {
-      phone,
+      username,
       password,
       onSubmit,
       errors,
