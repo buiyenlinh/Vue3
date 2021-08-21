@@ -1,6 +1,7 @@
 import * as yup from 'yup';
 import { useForm, useField } from 'vee-validate';
 import axios from 'axios';
+import { ref } from 'vue';
 
 export default function useValidateAccount () {
   const phoneRegExp = /^0[0-9]{9,}$/;
@@ -10,9 +11,10 @@ export default function useValidateAccount () {
     })
     
     const { handleSubmit, errors, resetForm } = useForm({validationSchema: loginSchema});
-
+    const isLoading = ref(false);
     const onSubmit = handleSubmit(values => {
-      alert(JSON.stringify(values, null, 2));
+      isLoading.value = true;
+      // alert(JSON.stringify(values, null, 2));
       login(JSON.stringify(values, null, 2));
     });
 
@@ -24,7 +26,8 @@ export default function useValidateAccount () {
     password,
     onSubmit,
     errors,
-    resetForm
+    resetForm,
+    isLoading
   }
 };
 
