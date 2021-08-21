@@ -3,17 +3,15 @@ import Home from "../views/Home.vue";
 import Login from "@/views/Auth/pages/login/index.vue";
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "/",
+    path: "/admin/login",
     name: "Login",
     component: Login,
   },
-  // {
-  //   path: "/posts",
-  //   name: "Posts",
-  //   component: () => 
-  //     import (/* webpackChunkName: "posts" */ "../views/Posts.vue")
-    
-  // },
+  {
+    path: "/admin",
+    name: "Home",
+    component: Home
+  },
   // {
   //   path: "/posts/:id",
   //   name: "DetailsPost",

@@ -2,8 +2,9 @@ import * as yup from 'yup';
 import { useForm, useField } from 'vee-validate';
 import axios from 'axios';
 import { ref } from 'vue';
+import router from '@/router';
 
-export default function useValidateAccount () {
+export default function useLogin () {
   // const usernameRegExp = /^0[0-9]{9,}$/;
     const loginSchema = yup.object ({
       username: yup.string().required("Tên đăng nhập là bắt buộc"),
@@ -33,7 +34,8 @@ export default function useValidateAccount () {
 
 async function login(params:any) {
   // const response = await axios.post('https://api-nienluan.sharenows.com/api/v1/Production/login', params);
-  const response = await axios.post('http://localhost:8082/api/login', params);
+  const response = await axios.post('login', params);
   console.log(response)
   localStorage.setItem('token', "khkjhguihdfrutihfjdbskjifgjfjfhgjh");
+  router.push({name: 'Home'})
 }

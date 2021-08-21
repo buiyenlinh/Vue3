@@ -11,10 +11,10 @@
     </el-col>
     <el-col :span="12">
       <div class="grid-content text-left login-right-wrap">
-        <div class="login-right">
+        <div class="login-right-login">
           <h1>Welcome to my web</h1>
-          <div class="login-form" @submit="onSubmit">
-            <el-form
+          <div class="login-form">
+            <el-form @submit.prevent="onSubmit"
               label-width="120px" label-position="left" class="demo-ruleForm">
               <el-form-item label="Tên đăng nhập">
                 <el-input type="tel" v-model="username"></el-input>
@@ -38,11 +38,12 @@
 
 <script>
 import { defineComponent } from "vue"
-import useValidateAccount from "../../hook/useValidateAccount.ts"
+import useLogin from "../../hook/useLogin.ts"
+import '@/get-data/api.ts';
 
 export default defineComponent({
   setup() {
-    const {username, password, onSubmit, errors, resetForm, isLoading } = useValidateAccount();
+    const {username, password, onSubmit, errors, resetForm, isLoading } = useLogin();
 
     return {
       username,
