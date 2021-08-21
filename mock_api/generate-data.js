@@ -53,14 +53,24 @@ const randomPostList = (n) => {
     return postList;
 }
 
+const randomLogin = () => {
+    const account = {
+        phone: '0987654321',
+        password: '12345678'
+    }
+    return account;
+}
+
 (() => {
     const customCategory = randomCategoryList(4);
     const customProduct = randomProductList(customCategory, 3);
     const customPostList = randomPostList(4);
+    const login = randomLogin();
     const db = {
         categories: customCategory,
         products: customProduct,
         postList: customPostList,
+        login: login,
         profile: {
             name: 'Yến'
         }

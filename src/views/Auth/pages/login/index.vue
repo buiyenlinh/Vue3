@@ -6,23 +6,25 @@
       </div>
     </el-col>
     <el-col :span="12">
-      <div class="grid-content text-left">
+      <div class="grid-content text-left login-right-wrap">
         <div class="login-right">
           <h1>Welcome to my web</h1>
-          <div class="login-form">
+          <div class="login-form" @submit="onSubmit">
             <el-form
-              :model="ruleForm" status-icon
-              label-width="80px" label-position="left"
+              :model="ruleForm"
+              label-width="120px" label-position="left"
               ref="loginForm" class="demo-ruleForm">
-              <el-form-item label="Phone">
-                <el-input v-model="account.phone"></el-input>
+              <el-form-item label="Số điện thoại">
+                <el-input type="tel" v-model="phone"></el-input>
+                <span class="login-error">{{ errors.phone }}</span>
               </el-form-item>
-              <el-form-item label="Password">
-                <el-input show-password v-model="account.password"></el-input>
+              <el-form-item label="Mật khẩu">
+                <el-input show-password v-model="password"></el-input>
+                <span class="login-error">{{ errors.password }}</span>
               </el-form-item>
               <el-form-item class="login-button">
-                <el-button type="primary" @click="submitForm('account')">Submit</el-button>
-                <el-button @click="resetForm('account')">Reset</el-button>
+                <el-button type="primary" @click="onSubmit">Đăng nhập</el-button>
+                <el-button @click="resetForm">Đặt lại</el-button>
               </el-form-item>
             </el-form>
           </div>
@@ -34,17 +36,17 @@
 
 <script>
 import { defineComponent } from "vue"
-import { useField } from "vee-validate";
-import useAccount from "../../hook/useAccount.ts"
-// import * as yup from 'yup';
+import useValidateAccount from "../../hook/useValidateAccount.ts"
 
 export default defineComponent({
   setup() {
-    const { account, resetForm, submitForm } = useAccount();
-    
+    const {phone, password, onSubmit, errors, resetForm } = useValidateAccount();
+
     return {
-      submitForm,
-      account,
+      phone,
+      password,
+      onSubmit,
+      errors,
       resetForm
     }
   },
