@@ -1,5 +1,9 @@
 <template>
-  <el-row class="row-bg">
+  <el-row class="row-bg" v-loading="isLoading"
+    element-loading-text="Loading..."
+    element-loading-spinner="el-icon-loading"
+    element-loading-background="rgba(0, 0, 0, 0.8)"
+    >
     <el-col :span="12">
       <div class="grid-content">
         <img src="@/assets/images/login-img-left.jpg" alt=""> 
@@ -40,14 +44,15 @@ import useValidateAccount from "../../hook/useValidateAccount.ts"
 
 export default defineComponent({
   setup() {
-    const {phone, password, onSubmit, errors, resetForm } = useValidateAccount();
+    const {phone, password, onSubmit, errors, resetForm, isLoading } = useValidateAccount();
 
     return {
       phone,
       password,
       onSubmit,
       errors,
-      resetForm
+      resetForm,
+      isLoading
     }
   },
 })
