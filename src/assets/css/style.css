@@ -11,14 +11,22 @@ img {
 
 /* Login */
 
-.bg-center { text-align: center; }
+
+.login-right-wrap {
+  display: table;
+  width: 50%;
+  height: 715px;
+  margin: 0 auto;
+}
 
 .login-right {
-  width: 50%;
-  margin: 25% auto;
+  display: table-cell;
+  vertical-align: middle;
   text-align: left;
 }
 
 .login-button .el-form-item__content {
   margin-left: 0px !important;
 }
+
+.login-error { color: red }

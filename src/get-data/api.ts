@@ -1,6 +1,6 @@
 import axios from "axios";
-const API = axios.create({
-    baseURL: "http://localhost:8082/api/"
+const APIAuth = axios.create({
+    baseURL: "https://api-nienluan.sharenows.com/api/v1/product/"
 })
 
-export default API;
+export default APIAuth;
