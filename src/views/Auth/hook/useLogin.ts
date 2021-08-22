@@ -5,21 +5,18 @@ import { ref } from 'vue';
 import router from '@/router';
 
 export default function useLogin () {
-  // const usernameRegExp = /^0[0-9]{9,}$/;
     const loginSchema = yup.object ({
       username: yup.string().required("Tên đăng nhập là bắt buộc"),
-      password: yup.string().required("Mật khẩu là bắt buộc").min(8)
+      password: yup.string().required("Mật khẩu là bắt buộc")
     })
     
     const { handleSubmit, errors, resetForm } = useForm({validationSchema: loginSchema});
     const isLoading = ref(false);
+   
     const onSubmit = handleSubmit(values => {
       isLoading.value = true;
-      // alert(JSON.stringify(values, null, 2));
-      login(JSON.stringify(values, null, 2));
+      login(values);
     });
-
-
     const { value: username } = useField('username');
     const { value: password } = useField('password');
   return {
@@ -32,10 +29,11 @@ export default function useLogin () {
   }
 };
 
-async function login(params:any) {
-  // const response = await axios.post('https://api-nienluan.sharenows.com/api/v1/Production/login', params);
-  const response = await axios.post('login', params);
-  console.log(response)
-  localStorage.setItem('token', "khkjhguihdfrutihfjdbskjifgjfjfhgjh");
-  router.push({name: 'Home'})
+async function login(params: any) {
+  axios.post("https://api-nienluan.sharenows.com/api/v1/auth/login", params)
+    .then (function(response) {
+      console.log(response);
+      localStorage.setItem('token', response.data.data.token);
+      router.push({name: 'Admin'});
+    })
 }

@@ -39,12 +39,12 @@
 <script>
 import { defineComponent } from "vue"
 import useLogin from "../../hook/useLogin.ts"
-import '@/get-data/api.ts';
+// import '@/get-data/api.ts';
 
 export default defineComponent({
   setup() {
     const {username, password, onSubmit, errors, resetForm, isLoading } = useLogin();
-
+  
     return {
       username,
       password,

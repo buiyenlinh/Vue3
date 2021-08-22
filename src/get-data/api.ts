@@ -3,7 +3,7 @@ import axios from "axios";
 //     baseURL: "https://api-nienluan.sharenows.com/api/v1/product/"
 // })
 
-axios.defaults.baseURL = "http://localhost:8082/api/";
+// axios.defaults.baseURL = "https://api-nienluan.sharenows.com/api/v1/auth/";
 // axios.defaults.headers.common['Authorization'] = 'Bearer' + localStorage.getItem('token');
 
 // export default APIAuth;

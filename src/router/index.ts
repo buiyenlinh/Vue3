@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
 import Login from "@/views/Auth/pages/login/index.vue";
+import Admin from "@/views/admin/Admin.vue";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/admin/login",
@@ -8,9 +9,14 @@ const routes: Array<RouteRecordRaw> = [
     component: Login,
   },
   {
-    path: "/admin",
+    path: "/",
     name: "Home",
-    component: Home
+    component: Home,
+  },
+  {
+    path: "/admin",
+    name: "Admin",
+    component: Admin
   },
   // {
   //   path: "/posts/:id",
@@ -24,13 +30,7 @@ const routes: Array<RouteRecordRaw> = [
   //   name: 'NotFound',
   //   component: () => import(/* webpackChunkName: "details post" */ "../views/NotFound.vue"),
   // },
-  // {
-  //   path: "/users",
-  //   name: "Users",
-  //   component: () => 
-  //     import (/* webpackChunkName: "posts" */ "../views/Users.vue")
-    
-  // },
+  // 
   // {
   //   path: '/users/:username',
   //   name: 'UserInfo',
