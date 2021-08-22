@@ -1,19 +1,23 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
 import Login from "@/views/Auth/pages/login/index.vue";
+import Admin from "@/views/admin/Admin.vue";
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "/",
+    path: "/admin/login",
     name: "Login",
     component: Login,
   },
-  // {
-  //   path: "/posts",
-  //   name: "Posts",
-  //   component: () => 
-  //     import (/* webpackChunkName: "posts" */ "../views/Posts.vue")
-    
-  // },
+  {
+    path: "/",
+    name: "Home",
+    component: Home,
+  },
+  {
+    path: "/admin",
+    name: "Admin",
+    component: Admin
+  },
   // {
   //   path: "/posts/:id",
   //   name: "DetailsPost",
@@ -26,13 +30,7 @@ const routes: Array<RouteRecordRaw> = [
   //   name: 'NotFound',
   //   component: () => import(/* webpackChunkName: "details post" */ "../views/NotFound.vue"),
   // },
-  // {
-  //   path: "/users",
-  //   name: "Users",
-  //   component: () => 
-  //     import (/* webpackChunkName: "posts" */ "../views/Users.vue")
-    
-  // },
+  // 
   // {
   //   path: '/users/:username',
   //   name: 'UserInfo',
