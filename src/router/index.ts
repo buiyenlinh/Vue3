@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
-import Login from "@/views/Auth/pages/login/index.vue";
-import Admin from "@/views/admin/Admin.vue";
+import Login from "@/views/login/index.vue";
+import Admin from "@/views/admin/index.vue";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/admin/login",
@@ -17,35 +17,7 @@ const routes: Array<RouteRecordRaw> = [
     path: "/admin",
     name: "Admin",
     component: Admin
-  },
-  // {
-  //   path: "/posts/:id",
-  //   name: "DetailsPost",
-  //   component: () =>
-  //     import(/* webpackChunkName: "details post" */ "../views/DetailsPost.vue"),
-  //   props: true
-  // },
-  // { 
-  //   path: '/:pathMatch(.*)*',
-  //   name: 'NotFound',
-  //   component: () => import(/* webpackChunkName: "details post" */ "../views/NotFound.vue"),
-  // },
-  // 
-  // {
-  //   path: '/users/:username',
-  //   name: 'UserInfo',
-  //   component: () => import(/* webpackChunkName: "Users" */"../views/Users.vue"),
-  //   children: [
-  //     {
-  //       path: '',
-  //       component: () => import(/* webpackChunkName: "Users Home" */"../components/UserHome.vue")
-  //     },
-  //     {
-  //       path: 'profile',
-  //       component: () => import(/* webpackChunkName: "Users Profile "*/"../components/UserProfile.vue"),
-  //     }
-  //   ]
-  // }
+  }
 ];
 
 const router = createRouter({

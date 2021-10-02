@@ -10,6 +10,7 @@
     "generate-data": "node ./mock_api/generate-data.js && nodemon ./mock_api/main.js"
   },
   "dependencies": {
+    "apexcharts": "^3.28.3",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "element-plus": "^1.0.2-beta.71",
@@ -20,6 +21,7 @@
     "vee-validate": "^4.4.9",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
+    "vue3-apexcharts": "^1.4.1",
     "vuex": "^4.0.0-0",
     "yup": "^0.32.9"
   },
