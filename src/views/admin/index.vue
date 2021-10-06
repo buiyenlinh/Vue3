@@ -12,7 +12,7 @@ export default defineComponent({
           },
           xaxis: {
             categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999, 2001, 2005]
-          },
+          }
         },
         series: [{
           name: 'sales',
@@ -72,6 +72,49 @@ export default defineComponent({
           :series="donutChart?.series"
         ></apexchart>
       </el-col>
+
+      <el-col :md="12">
+        <div class="box">I am here</div>
+      </el-col>
     </el-row>
   </div>
 </template>
+
+<style scoped>
+.box {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #ddd;
+  animation-name: useBox;
+  animation-duration: 4s;
+  position: relative;
+  animation-iteration-count: infinite;
+  color: #fff;
+}
+
+@keyframes useBox {
+  0% {
+    background-color: red;
+    left: 0px;
+    top: 0px;
+  }
+  25% {
+    background-color: yellow;
+    left: 200px;
+    top: 0;
+  }
+  50% {
+    background-color: green;
+    left: 200px;
+    top: 200px;
+  }
+  75% {
+    background-color: blue;
+    left: 0;
+    top: 200px;
+  }
+  100% {background-color:red; left:0px; top:0px;}
+
+  
+}
+</style>
